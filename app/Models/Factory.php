@@ -9,7 +9,7 @@ class Factory extends Model
 {
     protected $fillable = [
         'company_name',
-        'tax_id',
+        'tax_number',
         'contact_phone',
         'supplier_email',
         'physical_address',
