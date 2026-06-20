@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ArticleFactory extends Model
 {
     protected $fillable = [
-        
+        'factory_id',
+        'article_id',
         'current_stock',
         'supplier_cost',
         'delivery_time',
-        'factory_id',
-        'article_id'
+        
     ];
 
     public function factory()
