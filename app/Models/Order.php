@@ -9,28 +9,29 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Order extends Model
 {
     protected $fillable = [
-        'client_id',
-        'shipping_address_id',
-        'creation_date_time',
+        
+        'order_date',
         'subtotal',
-        'tax_amount',
+        'iva_amount',
         'general_total',
         'additional_notes',
-        'order_status'
+        'order_status',
+        'client_id',
+        'shipping_address_id'
     ];
 
-    public function client(): BelongsTo
+    public function client()
     {
-        return $this->belongsTo(related: Client::class);
+        return $this->belongsTo( Client::class);
     }
 
-    public function shippingAddress(): BelongsTo
+    public function shippingAddress()
     {
-        return $this->belongsTo(related: ShippingAddress::class);
+        return $this->belongsTo( ShippingAddress::class);
     }
 
-    public function orderLines(): HasMany
+    public function orderLines()
     {
-        return $this->hasMany(related: OrderLine::class);
+        return $this->hasMany( OrderLine::class);
     }
 }
