@@ -8,20 +8,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class OrderLine extends Model
 {
     protected $fillable = [
-        'order_id',
-        'article_id',
+        
         'requested_quantity',
         'unit_price',
-        'line_subtotal'
+        'line_subtotal',
+        'order_id',
+        'article_id'
     ];
 
-    public function order(): BelongsTo
+    public function order()
     {
-        return $this->belongsTo(related: Order::class);
+        return $this->belongsTo( Order::class);
     }
 
-    public function article(): BelongsTo
+    public function article()
     {
-        return $this->belongsTo(related: Article::class);
+        return $this->belongsTo( Article::class);
     }
 }
