@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Ramsey\Uuid\Type\Integer;
 
 return new class extends Migration
 {
@@ -17,8 +18,9 @@ return new class extends Migration
             $table->decimal('unit_price', 12, 2);
             $table->decimal('line_subtotal', 12, 2);
 
-            $table->unsignedBigInteger('order_id');
-            $table->unsignedBigInteger('article_id');
+            
+            $table->integer('order_id')->unsigned();
+            $table->integer('article_id')->unsigned();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade')->onUpdate('cascade');
