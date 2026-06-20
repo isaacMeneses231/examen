@@ -16,9 +16,9 @@ class FactoryRequest extends FormRequest
     {
         return [
             'company_name' => 'required|string|max:150',
-            'ruc_number' => 'required|string|max:50',
+            'ruc_number' => 'required|string|max:50|unique:factories,ruc_number',
             'contact_phone' => 'required|string|max:20',
-            'supplier_email' => 'required|string|email|max:255',
+            'supplier_email' => 'required|string|max:255|unique:factories,supplier_email',
             'physical_address' => 'required|string|max:255',
             'supplier_status' => 'required|string|max:20',
         ];
@@ -29,10 +29,12 @@ class FactoryRequest extends FormRequest
         return [
             'company_name.required' => 'El nombre de la empresa es requerido',
             'company_name.max' => 'El nombre debe tener menos de 150 caracteres',
-            'ruc_number.required' => 'El número de identificación es requerido',
+            'ruc_number' => 'required|string|max:50|unique:factories,ruc_number',
+            'ruc_number.unique' => 'Este número de RUC ya está registrado',
             'contact_phone.required' => 'El teléfono de contacto es requerido',
             'supplier_email.required' => 'El correo del proveedor es requerido',
             'supplier_email.email' => 'Debe ingresar un correo válido',
+            'supplier_email.unique' => 'El correo de este proveedor ya está registrado',
             'physical_address.required' => 'La dirección física es requerida',
             'supplier_status.required' => 'El estado del proveedor es requerido',
             'supplier_status.max' => 'El estado debe tener menos de 20 caracteres',
