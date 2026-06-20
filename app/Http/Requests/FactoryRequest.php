@@ -9,14 +9,14 @@ class FactoryRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     public function rules(): array
     {
         return [
             'company_name' => 'required|string|max:150',
-            'tax_number' => 'required|string|max:50',
+            'ruc_number' => 'required|string|max:50',
             'contact_phone' => 'required|string|max:20',
             'supplier_email' => 'required|string|email|max:255',
             'physical_address' => 'required|string|max:255',
@@ -29,7 +29,7 @@ class FactoryRequest extends FormRequest
         return [
             'company_name.required' => 'El nombre de la empresa es requerido',
             'company_name.max' => 'El nombre debe tener menos de 150 caracteres',
-            'tax_number.required' => 'El número de identificación es requerido',
+            'ruc_number.required' => 'El número de identificación es requerido',
             'contact_phone.required' => 'El teléfono de contacto es requerido',
             'supplier_email.required' => 'El correo del proveedor es requerido',
             'supplier_email.email' => 'Debe ingresar un correo válido',
