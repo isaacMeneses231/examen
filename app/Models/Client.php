@@ -18,13 +18,13 @@ class Client extends Model
         'client_status'
     ];
 
-    public function shippingAddresses(): HasMany
+    public function shippingAddresses()
     {
-        return $this->hasMany(related: ShippingAddress::class);
+        return $this->hasMany( ShippingAddress::class);
     }
 
-    public function orders(): HasMany
+    public function orders()
     {
-        return $this->hasMany(related: Order::class);
+        return $this->hasMany( Order::class);
     }
 }
