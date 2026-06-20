@@ -10,19 +10,19 @@ class Article extends Model
     protected $fillable = [
         'internal_code',
         'detailed_description',
-        'current_sale_price',
-        'average_purchase_cost',
+        'sale_price',
+        'purchase_cost',
         'availability_status',
         'entry_date'
     ];
 
-    public function articleFactories(): HasMany
+    public function articleFactories()
     {
-        return $this->hasMany(related: ArticleFactory::class);
+        return $this->hasMany( ArticleFactory::class);
     }
 
-    public function orderLines(): HasMany
+    public function orderLines()
     {
-        return $this->hasMany(related: OrderLine::class);
+        return $this->hasMany( OrderLine::class);
     }
 }
