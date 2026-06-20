@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('factories', function (Blueprint $table) {
            $table->id();
            $table->string('company_name', 150);
-           $table->string('tax_number', 50);
+           $table->string('ruc_number', 50);
            $table->string('contact_phone', 20);
            $table->string('supplier_email', 255);
            $table->string('physical_address', 255);
