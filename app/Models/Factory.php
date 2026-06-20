@@ -9,15 +9,15 @@ class Factory extends Model
 {
     protected $fillable = [
         'company_name',
-        'tax_number',
+        'ruc_number',
         'contact_phone',
         'supplier_email',
         'physical_address',
         'supplier_status'
     ];
 
-    public function articleFactories(): HasMany
+    public function articleFactories()
     {
-        return $this->hasMany(related: ArticleFactory::class);
+        return $this->hasMany( ArticleFactory::class);
     }
 }
