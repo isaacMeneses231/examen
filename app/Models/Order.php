@@ -10,14 +10,16 @@ class Order extends Model
 {
     protected $fillable = [
         
+        
+        'client_id',
+        'shipping_address_id',
         'order_date',
         'subtotal',
         'iva_amount',
         'general_total',
         'additional_notes',
-        'order_status',
-        'client_id',
-        'shipping_address_id'
+        'order_status'
+        
     ];
 
     public function client()
