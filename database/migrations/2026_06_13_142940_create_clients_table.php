@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('full_name', 255);
-            $table->string('email', 255);
+            $table->string('email', 255)->unique();
             $table->string('phone_number', 255);
             $table->decimal('balance', 12, 2);
             $table->decimal('credit_limit', 12, 2);
