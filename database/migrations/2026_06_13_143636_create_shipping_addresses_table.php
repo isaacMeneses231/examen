@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('location_reference', 255);
             $table->string('address_status', 255);
 
-            $table->unsignedBigInteger('client_id');
+            $table->integer('client_id')->unsigned();
             
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
         });
