@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('article_factories', function (Blueprint $table) {
             $table->id();
             $table->integer('current_stock');
-            $table->decimal('negotiated_supplier_cost', 12, 2);
-            $table->integer('estimated_delivery_time');
+            $table->decimal('supplier_cost', 12, 2);
+            $table->integer('delivery_time');
             
-            $table->unsignedBigInteger('factory_id');
-            $table->unsignedBigInteger('article_id');
+            $table->integer('factory_id')->unsigned();
+            $table->integer('article_id')->unsigned();
     
             $table->foreign('factory_id')->references('id')->on('factories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade')->onUpdate('cascade');
