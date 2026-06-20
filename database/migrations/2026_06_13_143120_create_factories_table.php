@@ -15,7 +15,7 @@ return new class extends Migration
            $table->increments('id');
            $table->string('company_name', 150);
            $table->string('ruc_number', 50)->unique();
-           $table->string('contact_phone', 20);
+           $table->string('contact_phone', 20)->unique();
            $table->string('supplier_email', 255)->unique();
            $table->string('physical_address', 255);
            $table->string('supplier_status', 20);
