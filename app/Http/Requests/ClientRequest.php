@@ -17,7 +17,7 @@ class ClientRequest extends FormRequest
         return [
             'full_name' => 'required|string|max:255',
             'email' => 'required|string|max:255|unique:clients,email',
-            'phone_number' => 'required|string|max:255',
+            'phone_number' => 'required|string|max:255|unique:clients,phone_number',
             'balance' => 'required',
             'credit_limit' => 'required',
             'discount' => 'required',
@@ -36,6 +36,7 @@ class ClientRequest extends FormRequest
             'email.email' => 'Debe ingresar un correo electrónico válido',
             'email.unique' => 'Este correo electrónico ya está registrado',
             'phone_number.required' => 'El número de teléfono es requerido',
+            'phone_number.unique' => 'Este número de teléfono del cliente ya está registrado.',
             'balance.required' => 'El saldo es requerido',
             'credit_limit.required' => 'El límite de crédito es requerido',
             'discount.required' => 'El descuento es requerido',
