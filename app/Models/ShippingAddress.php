@@ -15,8 +15,8 @@ class ShippingAddress extends Model
         'neighborhood',
         'city',
         'location_reference',
-        'address_status',
-        'client_id'
+        'address_status'
+        
     ];
 
     public function client() 
