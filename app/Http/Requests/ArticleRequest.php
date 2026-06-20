@@ -9,7 +9,7 @@ class ArticleRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     public function rules(): array
@@ -17,8 +17,8 @@ class ArticleRequest extends FormRequest
         return [
             'internal_code' => 'required|string|max:50',
             'detailed_description' => 'required|string|max:255',
-            'current_sale_price' => 'required|numeric',
-            'average_purchase_cost' => 'required|numeric',
+            'sale_price' => 'required|numeric',
+            'purchase_cost' => 'required|numeric',
             'availability_status' => 'required|string|max:20',
             'entry_date' => 'required|date',
         ];
@@ -30,10 +30,10 @@ class ArticleRequest extends FormRequest
             'internal_code.required' => 'El código interno es requerido',
             'internal_code.max' => 'El código debe tener menos de 50 caracteres',
             'detailed_description.required' => 'La descripción detallada es requerida',
-            'current_sale_price.required' => 'El precio de venta actual es requerido',
-            'current_sale_price.numeric' => 'El precio debe ser un número',
-            'average_purchase_cost.required' => 'El costo de compra promedio es requerido',
-            'average_purchase_cost.numeric' => 'El costo debe ser un número',
+            'sale_price.required' => 'El precio de venta actual es requerido',
+            'sale_price.numeric' => 'El precio debe ser un número',
+            'purchase_cost.required' => 'El costo de compra promedio es requerido',
+            'purchase_cost.numeric' => 'El costo debe ser un número',
             'availability_status.required' => 'El estado de disponibilidad es requerido',
             'entry_date.required' => 'La fecha de ingreso es requerida',
             'entry_date.date' => 'Debe ser una fecha válida',
