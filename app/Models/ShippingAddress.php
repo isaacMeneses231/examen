@@ -15,16 +15,17 @@ class ShippingAddress extends Model
         'neighborhood',
         'city',
         'location_reference',
-        'address_status'
+        'address_status',
+        'client_id'
     ];
 
-    public function client(): BelongsTo
+    public function client() 
     {
-        return $this->belongsTo(related: Client::class);
+        return $this->belongsTo( Client::class);
     }
 
-    public function orders(): HasMany
+    public function orders()
     {
-        return $this->hasMany(related: Order::class);
+        return $this->hasMany( Order::class);
     }
 }
