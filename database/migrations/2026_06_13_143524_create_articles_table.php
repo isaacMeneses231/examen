@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('internal_code', 50);
             $table->string('detailed_description', 255);
-            $table->decimal('current_sale_price', 12, 2);
-            $table->decimal('average_purchase_cost', 12, 2);
+            $table->decimal('sale_price', 12, 2);
+            $table->decimal('purchase_cost', 12, 2);
             $table->string('availability_status', 20);
             $table->date('entry_date');
             $table->timestamps();
