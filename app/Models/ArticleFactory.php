@@ -8,20 +8,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ArticleFactory extends Model
 {
     protected $fillable = [
-        'factory_id',
-        'article_id',
+        
         'current_stock',
-        'negotiated_supplier_cost',
-        'estimated_delivery_time'
+        'supplier_cost',
+        'delivery_time',
+        'factory_id',
+        'article_id'
     ];
 
-    public function factory(): BelongsTo
+    public function factory()
     {
-        return $this->belongsTo(related: Factory::class);
+        return $this->belongsTo( Factory::class);
     }
 
-    public function article(): BelongsTo
+    public function article()
     {
-        return $this->belongsTo(related: Article::class);
+        return $this->belongsTo( Article::class);
     }
 }
