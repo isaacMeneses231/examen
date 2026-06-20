@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-           $table->id();
+           $table->increments('id');
            $table->dateTime('order_date');
            $table->decimal('subtotal', 12, 2);
            $table->decimal('iva_amount', 12, 2);
