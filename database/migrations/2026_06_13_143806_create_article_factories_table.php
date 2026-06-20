@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('article_factories', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('current_stock');
             $table->decimal('supplier_cost', 12, 2);
             $table->integer('delivery_time');
