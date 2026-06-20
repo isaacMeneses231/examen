@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('full_name', 255);
             $table->string('email', 255)->unique();
-            $table->string('phone_number', 255);
+            $table->string('phone_number', 255)->unique();
             $table->decimal('balance', 12, 2);
             $table->decimal('credit_limit', 12, 2);
             $table->decimal('discount', 5, 2);
