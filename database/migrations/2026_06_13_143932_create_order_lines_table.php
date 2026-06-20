@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('order_lines', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('requested_quantity');
             $table->decimal('unit_price', 12, 2);
             $table->decimal('line_subtotal', 12, 2);
