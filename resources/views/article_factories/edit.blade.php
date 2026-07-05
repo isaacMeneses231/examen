@@ -67,7 +67,7 @@
                         </div>
                         <div>
                             <label for="delivery_time" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tiempo de Entrega (Días)</label>
-                            <input type="number" id="delivery_time" name="delivery_time" value="{{ old('delivery_time', $article_factory->delivery_time) }}" class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
+                            <input type="text" id="delivery_time" name="delivery_time" value="{{ old('delivery_time', $article_factory->delivery_time) }}" class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
                             @error('delivery_time')
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                             @enderror

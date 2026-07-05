@@ -35,7 +35,7 @@ class ArticleFactoryRequest extends FormRequest
             'current_stock.integer' => 'Las existencias deben ser un número entero',
             'supplier_cost.required' => 'El costo negociado es requerido',
             'delivery_time.required' => 'El tiempo estimado de entrega es requerido',
-            'delivery_time.integer' => 'El tiempo debe ser un número entero',
+            'delivery_time.string' => 'El tiempo debe ser un número',
             
         ];
     }

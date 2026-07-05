@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('current_stock');
             $table->decimal('supplier_cost', 12, 2);
-            $table->integer('delivery_time');
+            $table->string('delivery_time');
             
             $table->integer('factory_id')->unsigned();
             $table->integer('article_id')->unsigned();
