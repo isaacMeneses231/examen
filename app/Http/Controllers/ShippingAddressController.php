@@ -13,8 +13,8 @@ class ShippingAddressController extends Controller
      */
     public function index()
     {
-        $shippingAddresses = ShippingAddress::with('client')->orderByDesc('id')->get();
-        return view('shipping_addresses.index', compact('shippingAddresses'));
+        $shipping_addresses = ShippingAddress::with('client')->orderByDesc('id')->get();
+        return view('shipping_addresses.index', compact('shipping_addresses'));
     }
 
     /**
@@ -22,10 +22,10 @@ class ShippingAddressController extends Controller
      */
     public function create()
     {
-        $shippingAddress = new ShippingAddress();
+        $shipping_address = new ShippingAddress();
         $clients = Client::all();
         
-        return view('shipping_addresses.create', compact('shippingAddress', 'clients'));
+        return view('shipping_addresses.create', compact('shipping_address', 'clients'));
     }
 
     /**
@@ -42,8 +42,8 @@ class ShippingAddressController extends Controller
      */
     public function show(string $id)
     {
-        $shippingAddress = ShippingAddress::with('client')->findOrFail($id);
-        return view('shipping_addresses.show', compact('shippingAddress'));
+        $shipping_address = ShippingAddress::with('client')->findOrFail($id);
+        return view('shipping_addresses.show', compact('shipping_address'));
     }
 
     /**
@@ -51,10 +51,10 @@ class ShippingAddressController extends Controller
      */
     public function edit(string $id)
     {
-        $shippingAddress = ShippingAddress::with('client')->findOrFail($id);
+        $shipping_address = ShippingAddress::with('client')->findOrFail($id);
         $clients = Client::all();
         
-        return view('shipping_addresses.edit', compact('shippingAddress', 'clients'));
+        return view('shipping_addresses.edit', compact('shipping_address', 'clients'));
     }
 
     /**
@@ -62,8 +62,8 @@ class ShippingAddressController extends Controller
      */
     public function update(ShippingAddressRequest $request, string $id)
     {
-        $shippingAddress = ShippingAddress::with('client')->findOrFail($id);
-        $shippingAddress->update($request->validated());
+        $shipping_address = ShippingAddress::with('client')->findOrFail($id);
+        $shipping_address->update($request->validated());
         return redirect()->route('shipping_addresses.index')->with('success', 'Dirección de envío actualizada exitosamente');
     }
 
@@ -72,8 +72,8 @@ class ShippingAddressController extends Controller
      */
     public function destroy(string $id)
     {
-        $shippingAddress = ShippingAddress::with('client')->findOrFail($id);
-        $shippingAddress->delete();
+        $shipping_address = ShippingAddress::with('client')->findOrFail($id);
+        $shipping_address->delete();
         return redirect()->route('shipping_addresses.index')->with('success', 'Dirección de envío eliminada correctamente');
     }
 }
