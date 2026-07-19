@@ -6,6 +6,7 @@ use App\Http\Requests\OrderLineRequest;
 use App\Models\OrderLine;
 use App\Models\Order;
 use App\Models\ArticleFactory;
+use App\Models\Article; 
 
 class OrderLineController extends Controller
 {
@@ -14,8 +15,8 @@ class OrderLineController extends Controller
      */
     public function index()
     {
-        $orderLines = OrderLine::with(['order'])->orderByDesc('id')->get();
-        return view('order_lines.index', compact('orderLines'));
+        $order_lines = OrderLine::with(['order'])->orderByDesc('id')->get();
+        return view('order_lines.index', compact('order_lines'));
     }
 
     /**
@@ -23,11 +24,14 @@ class OrderLineController extends Controller
      */
     public function create()
     {
-        $orderLine = new OrderLine();
+        $order_line = new OrderLine();
         $orders = Order::all();
-        $articleFactories = ArticleFactory::all();
+        $article_factories = ArticleFactory::all();
+        // Agregamos la variable que faltaba
+        $articles = Article::all(); 
         
-        return view('order_lines.create', compact('orderLine', 'orders', 'articleFactories'));
+        // La incluimos en el compact
+        return view('order_lines.create', compact('order_line', 'orders', 'article_factories', 'articles'));
     }
 
     /**
@@ -44,8 +48,8 @@ class OrderLineController extends Controller
      */
     public function show(string $id)
     {
-        $orderLine = OrderLine::with(['order'])->findOrFail($id);
-        return view('order_lines.show', compact('orderLine'));
+        $order_line = OrderLine::with(['order'])->findOrFail($id);
+        return view('order_lines.show', compact('order_line'));
     }
 
     /**
@@ -53,11 +57,14 @@ class OrderLineController extends Controller
      */
     public function edit(string $id)
     {
-        $orderLine = OrderLine::with(['order'])->findOrFail($id);
+        $order_line = OrderLine::with(['order'])->findOrFail($id);
         $orders = Order::all();
-        $articleFactories = ArticleFactory::all();
+        $article_factories = ArticleFactory::all();
+        // Agregamos la variable que faltaba también en edición
+        $articles = Article::all(); 
         
-        return view('order_lines.edit', compact('orderLine', 'orders', 'articleFactories'));
+        // La incluimos en el compact
+        return view('order_lines.edit', compact('order_line', 'orders', 'article_factories', 'articles'));
     }
 
     /**
@@ -65,8 +72,8 @@ class OrderLineController extends Controller
      */
     public function update(OrderLineRequest $request, string $id)
     {
-        $orderLine = OrderLine::with(['order'])->findOrFail($id);
-        $orderLine->update($request->validated());
+        $order_line = OrderLine::with(['order'])->findOrFail($id);
+        $order_line->update($request->validated());
         return redirect()->route('order_lines.index')->with('success', 'Línea de pedido actualizada exitosamente');
     }
 
@@ -75,8 +82,8 @@ class OrderLineController extends Controller
      */
     public function destroy(string $id)
     {
-        $orderLine = OrderLine::with(['order'])->findOrFail($id);
-        $orderLine->delete();
+        $order_line = OrderLine::with(['order'])->findOrFail($id);
+        $order_line->delete();
         return redirect()->route('order_lines.index')->with('success', 'Línea de pedido eliminada correctamente');
     }
 }

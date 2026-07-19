@@ -25,9 +25,10 @@ class OrderController extends Controller
     {
         $order = new Order();
         $clients = Client::all();
-        $shippingAddresses = ShippingAddress::all();
+        // Variable corregida a snake_case
+        $shipping_addresses = ShippingAddress::all();
         
-        return view('orders.create', compact('order', 'clients', 'shippingAddresses'));
+        return view('orders.create', compact('order', 'clients', 'shipping_addresses'));
     }
 
     /**
@@ -55,9 +56,10 @@ class OrderController extends Controller
     {
         $order = Order::with(['client'])->findOrFail($id);
         $clients = Client::all();
-        $shippingAddresses = ShippingAddress::all();
+        // Variable corregida a snake_case
+        $shipping_addresses = ShippingAddress::all();
         
-        return view('orders.edit', compact('order', 'clients', 'shippingAddresses'));
+        return view('orders.edit', compact('order', 'clients', 'shipping_addresses'));
     }
 
     /**
