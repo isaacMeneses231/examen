@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ShippingAddress extends Model
 {
+    public $timestamps = false;
     protected $fillable = [
         'client_id',
         'number',
